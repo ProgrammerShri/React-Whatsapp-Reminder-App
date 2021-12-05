@@ -9,12 +9,14 @@ function App() {
   const [reminderList, setReminderList] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/getAllReminder").then((res) => setReminderList(res.data));
+    axios
+      .get("http://localhost:9000/getAllReminder")
+      .then((res) => setReminderList(res.data));
   }, []);
 
   const addReminder = () => {
     axios
-      .post("/api/addReminder", { reminderMsg, remindAt })
+      .post("http://localhost:9000/addReminder", { reminderMsg, remindAt })
       .then((res) => setReminderList(res.data));
     setReminderMsg("");
     setRemindAt();
@@ -22,7 +24,7 @@ function App() {
 
   const deleteReminder = (id) => {
     axios
-      .post("/api/deleteReminder", { id })
+      .post("http://localhost:9000/deleteReminder", { id })
       .then((res) => setReminderList(res.data));
   };
 
