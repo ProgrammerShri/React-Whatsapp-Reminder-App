@@ -9,14 +9,12 @@ function App() {
   const [reminderList, setReminderList] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:9000/getAllReminder")
-      .then((res) => setReminderList(res.data));
+    axios.get("/api/getAllReminder").then((res) => setReminderList(res.data));
   }, []);
 
   const addReminder = () => {
     axios
-      .post("http://localhost:9000/addReminder", { reminderMsg, remindAt })
+      .post("/api/addReminder", { reminderMsg, remindAt })
       .then((res) => setReminderList(res.data));
     setReminderMsg("");
     setRemindAt();
@@ -24,7 +22,7 @@ function App() {
 
   const deleteReminder = (id) => {
     axios
-      .post("http://localhost:9000/deleteReminder", { id })
+      .post("/api/deleteReminder", { id })
       .then((res) => setReminderList(res.data));
   };
 
@@ -33,28 +31,28 @@ function App() {
       <div className="homepage">
         <div className="homepage_header">
           <div className="subHeader">
-          <h1>Remind Me 🙋‍♂️</h1>
-          <input
-          className="inputBox"
-            type="text"
-            placeholder="Reminder Notes Here..."
-            value={reminderMsg}
-            onChange={(e) => setReminderMsg(e.target.value)}
-          />
-          <DateTimePicker
-           className="datePicker"
-            value={remindAt}
-            onChange={setRemindAt}
-            minDate={new Date()}
-            minutePlaceholder="mm"
-            hourPlaceholder="hh"
-            dayPlaceholder="DD"
-            monthPlaceholder="MM"
-            yearPlaceholder="YYYY"
-          />
-          <div className="button" onClick={addReminder}>
-            Add Reminder
-          </div>
+            <h1>Remind Me 🙋‍♂️</h1>
+            <input
+              className="inputBox"
+              type="text"
+              placeholder="Reminder Notes Here..."
+              value={reminderMsg}
+              onChange={(e) => setReminderMsg(e.target.value)}
+            />
+            <DateTimePicker
+              className="datePicker"
+              value={remindAt}
+              onChange={setRemindAt}
+              minDate={new Date()}
+              minutePlaceholder="mm"
+              hourPlaceholder="hh"
+              dayPlaceholder="DD"
+              monthPlaceholder="MM"
+              yearPlaceholder="YYYY"
+            />
+            <div className="button" onClick={addReminder}>
+              Add Reminder
+            </div>
           </div>
         </div>
 
