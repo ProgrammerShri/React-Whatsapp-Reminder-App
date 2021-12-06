@@ -8,15 +8,18 @@ function App() {
   const [remindAt, setRemindAt] = useState();
   const [reminderList, setReminderList] = useState([]);
 
+  const LOCAL_URL = "http://localhost:9000";
+  const HOST_URL = "https://whatsapp-notifierapp.herokuapp.com";
+
   useEffect(() => {
     axios
-      .get("http://localhost:9000/getAllReminder")
+      .get(`${HOST_URL}/getAllReminder`)
       .then((res) => setReminderList(res.data));
   }, []);
 
   const addReminder = () => {
     axios
-      .post("http://localhost:9000/addReminder", {
+      .post(`${HOST_URL}/addReminder`, {
         reminderMsg,
         remindAt,
       })
@@ -27,7 +30,7 @@ function App() {
 
   const deleteReminder = (id) => {
     axios
-      .post("http://localhost:9000/deleteReminder", { id })
+      .post(`${HOST_URL}/deleteReminder`, { id })
       .then((res) => setReminderList(res.data));
   };
 
