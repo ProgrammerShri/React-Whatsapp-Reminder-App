@@ -20,11 +20,11 @@ app.listen(port, () => console.log(`Server running on port ${port}`));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("frontend/build")); // set static folder
   //returning frontend for any route other than api
-  app.get("*", (req, res) => {
-    res.sendFile(
-      path.resolve(__dirname, "notifierapp-frontend", "build", "index.html")
-    );
-  });
+  // app.get("*", (req, res) => {
+  //   res.sendFile(
+  //     path.resolve(__dirname, "notifierapp-frontend", "build", "index.html")
+  //   );
+  // });
 }
 
 const DB = process.env.DB_URL;
