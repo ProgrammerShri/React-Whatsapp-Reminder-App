@@ -13,7 +13,7 @@ app.use(cors());
 
 // DB Config
 
-// app.get("/", (req, res) => res.send("Hello world!")); // For Hosting Test
+app.get("/", (req, res) => res.send("Hello world!")); // For Hosting Test
 const port = process.env.PORT || 9000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
