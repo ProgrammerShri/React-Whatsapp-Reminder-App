@@ -15,7 +15,7 @@ function App() {
     axios
       .get(`${HOST_URL}/getAllReminder`)
       .then((res) => setReminderList(res.data));
-  }, []);
+  }, [reminderList]);
 
   const addReminder = () => {
     axios
