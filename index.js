@@ -18,7 +18,7 @@ const port = process.env.PORT || 9000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build")); // set static folder
+  app.use(express.static("notifierapp-frontend/build")); // set static folder
   //returning frontend for any route other than api
   // app.get("*", (req, res) => {
   //   res.sendFile(
