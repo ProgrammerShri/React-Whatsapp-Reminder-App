@@ -1,30 +1,65 @@
-import { createSlice } from '@reduxjs/toolkit'
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import eventServices from "../../services/eventServices";
 const initialState = {
-  value: 0,
-}
+  Events: [],
+};
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const createEvent = createAsyncThunk("events/create", async (data) => {
+  const res = await eventServices.create({
+    ...data,
+  });
+  return res.data;
+});
+export const retriveEvents = createAsyncThunk("events/retrieve", async () => {
+  const res = await eventServices.getAll();
+  return res.data;
+});
+export const updateEvent = createAsyncThunk("events/update", async (data) => {
+  const res = await eventServices.update(data);
+  return res.data;
+});
+export const deleteEvent = createAsyncThunk("events/delete", async (id) => {
+  await eventServices.delete(id);
+  return id;
+});
+export const deleteAllEvents = createAsyncThunk("events/deleteAll", async () => {
+  const res = await eventServices.deleteAll();
+  return res.data;
+});
+export const findTutorialsByTitle = createAsyncThunk(
+  "events/findByTitle",
+  async ({ title }) => {
+    const res = await eventServices.findByTitle(title);
+    return res.data;
+  }
+);
+const eventSlice = createSlice({
+  name: "events",
   initialState,
-  reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1
+  extraReducers: {
+    [retriveEvents.fulfilled]: (state, action) => {
+      state.events = action.payload;
     },
-    decrement: (state) => {
-      state.value -= 1
+    [createEvent.fulfilled]: (state, action) => {
+      state.events.push(action.payload);
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload
+    [updateEvent.fulfilled]: (state, action) => {
+      const index = state.events.findIndex(
+        (event) => event.id === action.payload.id
+      );
+      state.events[index] = action.payload;
     },
+    [deleteEvent.fulfilled]: (state, action) => {
+      let index = state.events.findIndex((id) => id === action.payload.id);
+      state.events.splice(index, 1);
+    },
+    [deleteAllEvents.fulfilled]: (state, action) => {
+      return [];
+    },
+    // [findTutorialsByTitle.fulfilled]: (state, action) => {
+    //   return [...action.payload];
+    // },
   },
-})
-
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
-
-export default counterSlice.reducer
+});
+const { reducer } = eventSlice;
+export default reducer;

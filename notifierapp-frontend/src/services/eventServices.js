@@ -1,4 +1,4 @@
-import http from "../api";
+import http from "../apis/api";
 class shopDataServices {
   getAll() {
     return http.get("/shops");

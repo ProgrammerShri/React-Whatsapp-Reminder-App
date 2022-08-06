@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import { DatePicker } from "antd";
-import { store } from "./redux/store/store";
+import  store  from "./redux/store/store";
 import { Provider } from "react-redux";
 
 function App() {
