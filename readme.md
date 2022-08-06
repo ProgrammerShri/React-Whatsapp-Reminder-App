@@ -1,10 +1,14 @@
-# 450-DSA Cracker 🚀
+# React Reminder App (Through Whatsapp) 🚀
 
 
 ## Overview 👀
 
 - **Mobile first design ✌🏻**
+- **Whatsapp Notificaiton✌🏻**
 - **Clean UI ⚡**
+
+## Future Plan 
+- **Email Notification **
 
 ## Dependencies 🗃
 
