@@ -1,5 +1,6 @@
 import React from "react";
 import AppButton from "./Basics/AppButton";
+import AppDateTimePicker from "./Basics/AppDateTimePicker";
 import AppInput from "./Basics/AppInput";
 import AppTextArea from "./Basics/AppTextArea";
 
@@ -11,6 +12,7 @@ const HeroCard = () => {
           Hey! Remind Me Anything, Then I'll Remind You Again
         </h1>
         <AppTextArea />
+        <AppDateTimePicker />
         <AppButton />
       </div>
     </div>
