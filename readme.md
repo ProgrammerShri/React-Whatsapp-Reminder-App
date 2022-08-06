@@ -1,25 +1,39 @@
-## After clonning thi repository
-
-Step 1 : Add .env file in your clonned folder and add your all the important keys. <br/>
-
-DB_URL = "mongodb+srv://username:password@cluster0.alcyz.mongodb.net/databasename?retryWrites=true&w=majority" : <br/>
-Add your username, password and database name <br/>
-ACCOUNT_SID = 'AdD****************************2'   : add twilio account id  <br/>
-AUTH_TOKEN = '94*******************fdfd*fdf**df'   : add twilio auth token  <br/>
-
-BOT_MOBILE_NUMBER = +11111111111  : twilio mobile number <br/>
-MY_MOBILE_NUMBER = +99999999999   : your mobile number <br/>
-
-Step 2 : Then run npm install for frontend and backend <br/>
-
-Step 3 : nodemon index.js in one terminal <br/>
-
-Step 4 : open new terminal and "cd notifierapp-frontend && npm start" <br/>
-
-Note : you need to change HOST_URL to LOCAL_URL in App.js Component thats it. <br/>
+# 450-DSA Cracker 🚀
 
 
+## Overview 👀
+
+- **Mobile first design ✌🏻**
+- **Clean UI ⚡**
+
+## Dependencies 🗃
+
+- [React] - **Frontend Framework**
+- [Tailwind-CSS] - **CSS Framework**
+- [Ant-Design] - **React Component**
+- [MongoDB] - **Backend**
+- [Redux-Toolkit] - **State Management**
 
 
+## Run Locally 💻
+```
+> Clone the repo
+    >> For Windows: Git Bash
+    >> For Linux: Terminal
+    >> git clone https://github.com/ProgrammerShri/React-Whatsapp-Reminder-App.git
+> Change the folder location to your source Code Folder
+    >> cd React-Whatsapp-Reminder-App/notifier-frontend
+> Install the dependencies
+    >> npm install
+> Start the server
+    >> npm start
+> Now this app runs on port 3000 of your Local Machine
+```
 
 
+[here]: https://www.youtube.com/watch?v=4iFALQ1ACdA
+[react]: https://reactjs.org/
+[Tailwind-CSS]: https://tailwindcss.com/
+[Ant-Design]: https://ant.design/
+[MongoDB]: https://www.mongodb.com/
+[Redux-Toolkit]: https://redux-toolkit.js.org/
