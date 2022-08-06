@@ -1,10 +1,11 @@
-import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import { DatePicker } from "antd";
 import  store  from "./redux/store/store";
 import { Provider } from "react-redux";
+import AppInput from "./components/Basics/AppInput";
+import Navbar from "./components/Navbar";
 
 function App() {
   const [reminderMsg, setReminderMsg] = useState("");
@@ -40,6 +41,9 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
+      <Navbar />
+      {/* <AppInput  /> */}
+{/* 
         <div className="homepage">
           <div className="homepage_header">
             <div className="subHeader">
@@ -51,6 +55,7 @@ function App() {
                 value={reminderMsg}
                 onChange={(e) => setReminderMsg(e.target.value)}
               />
+
               <DateTimePicker
                 className="datePicker"
                 value={remindAt}
@@ -95,7 +100,7 @@ function App() {
               </li>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </Provider>
   );
