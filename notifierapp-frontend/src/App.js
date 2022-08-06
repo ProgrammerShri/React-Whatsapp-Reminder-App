@@ -2,6 +2,8 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
+import { DatePicker } from 'antd';
+
 
 function App() {
   const [reminderMsg, setReminderMsg] = useState("");
@@ -39,7 +41,7 @@ function App() {
       <div className="homepage">
         <div className="homepage_header">
           <div className="subHeader">
-            <h1>Remind Me 🙋‍♂️</h1>
+            <h1 className="text-3xl font-bold underline" >Remind Me 🙋‍♂️</h1>
             <input
               className="inputBox"
               type="text"
