@@ -1,26 +1,26 @@
 import http from "../apis/api";
-class shopDataServices {
+class eventDataServices {
   getAll() {
-    return http.get("/shops");
+    return http.get("/events");
   }
   get(id) {
-    return http.get(`/shops/${id}`);
+    return http.get(`/events/${id}`);
   }
   create(data) {
-    return http.post("/shops", data);
+    return http.post("/events", data);
   }
   update(data) {
     const { id } = data;
-    return http.put(`/shops/${id}`, data);
+    return http.put(`/events/${id}`, data);
   }
   delete(id) {
-    return http.delete(`/shops/${id}`);
+    return http.delete(`/events/${id}`);
   }
   deleteAll() {
-    return http.delete(`/shops`);
+    return http.delete(`/events`);
   }
   findByTitle(title) {
-    return http.get(`/shops?title=${title}`);
+    return http.get(`/events?title=${title}`);
   }
 }
-export default new shopDataServices();
+export default new eventDataServices();
