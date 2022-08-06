@@ -8,7 +8,7 @@
 - **Clean UI ⚡**
 
 ## Future Plan 
-- **Email Notification **
+- **Email Notification**
 
 ## Dependencies 🗃
 
