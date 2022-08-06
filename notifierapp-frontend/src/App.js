@@ -6,6 +6,7 @@ import  store  from "./redux/store/store";
 import { Provider } from "react-redux";
 import AppInput from "./components/Basics/AppInput";
 import Navbar from "./components/Navbar";
+import HeroCard from "./components/HeroCard";
 
 function App() {
   const [reminderMsg, setReminderMsg] = useState("");
@@ -42,6 +43,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
       <Navbar />
+      <HeroCard />
       {/* <AppInput  /> */}
 {/* 
         <div className="homepage">

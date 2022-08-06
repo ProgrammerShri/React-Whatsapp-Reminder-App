@@ -1,15 +1,16 @@
-import { Input } from 'antd'
-import React from 'react'
+import { Input } from "antd";
+import React from "react";
 
-const AppInput = () => {
+const AppInput = ({ placeholder="Type Something" }) => {
   return (
-    <Input style={{
-      border: '1px solid #ccc',
-      borderRadius: '30px',
-      height: '40px',
-      width: '300px',
-    }} />
-  )
-}
+    <div className="flex justify-center items-center m-2">
+      <Input
+        className="w-full border-2 rounded-lg h-12 "
+        placeholder={placeholder}
+        autoFocus={true}
+      />
+    </div>
+  );
+};
 
-export default AppInput
+export default AppInput;
