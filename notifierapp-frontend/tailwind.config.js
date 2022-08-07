@@ -10,7 +10,7 @@ module.exports = {
         primary: "#010101",
         secondary: "#191919",
         tertiary: "#161616",
-        purple: "#9b51e0",
+        purple: "#1890ff",
         white: "#ffffff",
       },
     },

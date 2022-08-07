@@ -7,6 +7,20 @@ html {
 }
 
 body {
-    /* background-color: black;
-    color: white; */
+    --primary: #0070f3;
+    --secondary: #ff4081;
+    --tertiary: #f50057;
+    --quaternary: #c51162;
+}
+
+
+
+
+/* Ant Design Button Styles */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    -webkit-appearance: button;
+    background-color: var(--primary);
 }
