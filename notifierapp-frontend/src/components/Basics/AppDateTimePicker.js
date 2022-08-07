@@ -8,8 +8,13 @@ const AppDateTimePicker = () => {
 
   return (
     <div className="w-full flex justify-around items-center">
-      <DatePicker onChange={onChange} className="w-full m-1 rounded-lg"/>
-      <TimePicker use12Hours format="h:mm a" onChange={onChange} className="w-full m-1 rounded-lg"/>
+      <DatePicker onChange={onChange} className="w-full m-1 rounded-lg" />
+      <TimePicker
+        use12Hours
+        format="h:mm a"
+        onChange={onChange}
+        className="w-full m-1 rounded-lg"
+      />
     </div>
   );
 };

@@ -1,13 +1,60 @@
-import { Button } from "antd";
+import { useEffect } from "react";
 import colors from "../constants/colors";
 import useDarkMode from "../hooks/useDarkMode";
 
+function antDesingDarkMode() {
+  let stylesheets = {
+    light: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.22.3/antd.min.css",
+    dark: "https://cdnjs.cloudflare.com/ajax/libs/antd/4.22.3/antd.dark.min.css"
+  };
+
+  let createStylesheetLink = function () {
+    let link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.id = "antd-stylesheet";
+    document.head.appendChild(link);
+    return link;
+  };
+
+  let getStylesheetLink = function () {
+    return (
+      document.head.querySelector("#antd-stylesheet") || createStylesheetLink()
+    );
+  };
+
+  let systemTheme = function () {
+    return window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+
+  let getTheme = function () {
+    return localStorage.getItem("theme") || systemTheme();
+  };
+
+  let setTheme = function (t) {
+    localStorage.setItem("theme", t);
+    getStylesheetLink().href = stylesheets[t];
+  };
+
+  let toggleTheme = function () {
+    return setTheme(getTheme() === "dark" ? "light" : "dark");
+  };
+
+  toggleTheme();
+}
+
 function ThemeToggle() {
   const [colorTheme, setTheme] = useDarkMode();
+
   return (
     <span
       className="animate-bounce- cursor-pointer hover:bg-gray-300 p-1 rounded-full "
-      onClick={() => setTheme(colorTheme)}
+      onClick={() => {
+        setTheme(colorTheme);
+        // antDesingDarkMode();
+      }}
     >
       {colorTheme === "light" ? Moon() : Sun()}
     </span>
