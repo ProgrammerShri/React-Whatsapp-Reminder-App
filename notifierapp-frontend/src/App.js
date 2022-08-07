@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
-import { DatePicker } from "antd";
 import store from "./redux/store/store";
 import { Provider } from "react-redux";
-import AppInput from "./components/Basics/AppInput";
 import Navbar from "./components/Navbar";
 import HeroCard from "./components/HeroCard";
-import ThemeToggle from "./components/ThemeToggle";
 
 function App() {
   const [reminderMsg, setReminderMsg] = useState("");
