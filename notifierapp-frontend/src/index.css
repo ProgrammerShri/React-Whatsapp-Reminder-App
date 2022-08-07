@@ -7,10 +7,37 @@ html {
 }
 
 body {
-    --primary: #0070f3;
-    --secondary: #ff4081;
-    --tertiary: #f50057;
-    --quaternary: #c51162;
+    --primary: #010101;
+    --secondary: #191919;
+    --tertiary: #161616;
+    --primary-blue: #1890ff;
+    --white: #ffffff;
+}
+
+body {
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+    /* WebKit */
+    width: 8px;
+    height: 0;
+}
+
+body::-webkit-scrollbar-track {
+    /* WebKit */
+    background: var(--primary);
+    width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    /* WebKit */
+    width: 8px;
+    background: black);
 }
 
 /* Ant Design Button Styles */
@@ -19,5 +46,6 @@ button,
 [type='reset'],
 [type='submit'] {
     -webkit-appearance: button;
-    background-color: var(--primary);
+    background-color: var(--primary-blue);
 }
+
