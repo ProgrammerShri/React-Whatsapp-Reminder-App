@@ -53,7 +53,7 @@ function ThemeToggle() {
       className="animate-bounce- cursor-pointer hover:bg-gray-300 p-1 rounded-full "
       onClick={() => {
         setTheme(colorTheme);
-        // antDesingDarkMode();
+        antDesingDarkMode();
       }}
     >
       {colorTheme === "light" ? Moon() : Sun()}
