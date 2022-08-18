@@ -3,7 +3,7 @@ import React from "react";
 
 const { TextArea } = Input;
 
-const AppTextArea = ({ placeholder = "Type Something" }) => {
+const AppTextArea = ({ placeholder = "Type Something" , ...otherProps}) => {
   return (
     <div className="flex justify-center items-center m-2 w-full">
       <TextArea
@@ -14,6 +14,7 @@ const AppTextArea = ({ placeholder = "Type Something" }) => {
         style={{
             fontSize: "1rem",
         }}
+        {...otherProps}
       />
     </div>
   );

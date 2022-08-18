@@ -37,6 +37,8 @@ function App() {
       .then((res) => setReminderList(res.data));
   };
 
+  // console.log("remindAt",remindAt)
+
   return (
     <Provider store={store}>
       <div className="bg-white dark:bg-black transition duration-500 min-h-screen">

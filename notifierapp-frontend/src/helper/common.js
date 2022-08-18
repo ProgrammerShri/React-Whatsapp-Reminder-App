@@ -1,5 +1,4 @@
-// Moment.js
-const moment = window.moment;
+import moment from 'moment';
 
 // Render Time (with format)
 export function renderTime(dateObject, format = "DD-MMM-YYYY hh:mma") {

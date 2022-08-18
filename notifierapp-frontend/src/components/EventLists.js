@@ -1,43 +1,53 @@
-import { Table } from "antd";
+import { Button, Table } from "antd";
+import axios from "axios";
 import React from "react";
+import { renderTime } from "../helper/common";
+
+const LOCAL_URL = "http://localhost:9000";
+const HOST_URL = "https://whatsapp-notifierapp.herokuapp.com";
+
 const columns = [
   {
-    title: "Name",
-    dataIndex: "name",
+    title: "Reminder Message",
+    dataIndex: "reminderMsg",
+    key: "reminderMsg",
+    align: "center",
   },
   {
-    title: "Age",
-    dataIndex: "age",
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
+    title: "Remind At ",
+    dataIndex: "remindAt",
+    align: "center",
+    render: (text) => renderTime(text),
   },
   {
     title: "Action",
     dataIndex: "action",
-    render: (text, record) => (
-      <span>
-        <a href="#!">Edit</a>
-        &nbsp;&nbsp;
-        <a href="#!">Delete</a>
-      </span>
-    ),
+    align: "center",
+    render: (text, record) => {
+      const deleteReminder = (id) => {
+        axios
+          .post(`${LOCAL_URL}/deleteReminder`, { id })
+          .then((res) => console.log(res.data));
+      };
+      return (
+        <span>
+          <Button onClick={() => deleteReminder(record._id)}>Delete</Button>
+        </span>
+      );
+    },
   },
 ];
-const data = [];
 
-for (let i = 0; i < 20; i++) {
-  data.push({
-    key: i,
-    name: `Edward King ${i}`,
-    age: 32,
-    address: `London, Park Lane no. ${i}`,
-  });
-}
-
-const EventLists = () => {
-  return <Table columns={columns} dataSource={data} scroll={{ y: 500 }} pagination />;
+const EventLists = ({ data = [] }) => {
+  return (
+    <Table
+      columns={columns}
+      dataSource={data}
+      scroll={{ y: 500 }}
+      pagination
+      rowKey="_id"
+    />
+  );
 };
 
 export default EventLists;
